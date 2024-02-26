@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IRIS Prediction Results</title>
+    <link rel="stylesheet" href="C:/Users/NV2104/Downloads/Task 4/Task 4/static/css/style.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: white;
+        }
+
+        Edit Download Copy code .container {
+            width: 100%;
+            max-width: 400px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 9px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header {
+            background-color: lightgrey;
+            color: black;
+            padding: 20px;
+            text-align: center;
+            border-radius: 9px 9px 0 0;
+            margin-bottom: 0px;
+        }
+
+        .form {
+            padding: 20px;
+            background-image: linear-gradient(to right, lightgrey, lightgrey);
+        }
+
+        .form input[type="text"],
+        .form button {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: black;
+            border-radius: 5px;
+            color: black;
+            font-size: 16px;
+        }
+
+        .form button {
+            margin-top: 20px;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+
+        .form button:hover {
+            background-color: grey;
+        }
+
+        .result {
+            background-color: lightgrey;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>IRIS Prediction Results</h1>
+            <p>The species of Iris flower is: {{ prediction_text }}</p>
+        </div>
+    </div>
+</body>
+
+</html>

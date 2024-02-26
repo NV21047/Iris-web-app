@@ -1,0 +1,192 @@
+[
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "pickle",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pickle",
+        "description": "pickle",
+        "detail": "pickle",
+        "documentation": {}
+    },
+    {
+        "label": "KNeighborsClassifier",
+        "importPath": "sklearn.neighbors",
+        "description": "sklearn.neighbors",
+        "isExtraImport": true,
+        "detail": "sklearn.neighbors",
+        "documentation": {}
+    },
+    {
+        "label": "load_iris",
+        "importPath": "sklearn.datasets",
+        "description": "sklearn.datasets",
+        "isExtraImport": true,
+        "detail": "sklearn.datasets",
+        "documentation": {}
+    },
+    {
+        "label": "RandomForestClassifier",
+        "importPath": "sklearn.ensemble",
+        "description": "sklearn.ensemble",
+        "isExtraImport": true,
+        "detail": "sklearn.ensemble",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "App.app",
+        "description": "App.app",
+        "peekOfCode": "def home():\n    return render_template(\"index.html\")\n@app.route(\"/predict\", methods=[\"POST\"])\ndef predict():\n    int_features = [float(x) for x in request.form.values()]\n    final_features = [np.array(int_features)]\n    prediction = model.predict(final_features)\n    if prediction[0] == 0:\n        output = \"Setosa\"\n    elif prediction[0] == 1:",
+        "detail": "App.app",
+        "documentation": {}
+    },
+    {
+        "label": "predict",
+        "kind": 2,
+        "importPath": "App.app",
+        "description": "App.app",
+        "peekOfCode": "def predict():\n    int_features = [float(x) for x in request.form.values()]\n    final_features = [np.array(int_features)]\n    prediction = model.predict(final_features)\n    if prediction[0] == 0:\n        output = \"Setosa\"\n    elif prediction[0] == 1:\n        output = \"Versicolor\"\n    else:\n        output = \"Virginica\"",
+        "detail": "App.app",
+        "documentation": {}
+    },
+    {
+        "label": "results",
+        "kind": 2,
+        "importPath": "App.app",
+        "description": "App.app",
+        "peekOfCode": "def results(prediction_text):\n    return render_template(\"results.html\", prediction_text=prediction_text)\nif __name__ == \"__main__\":\n    app.run(debug=True)",
+        "detail": "App.app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "App.app",
+        "description": "App.app",
+        "peekOfCode": "app = Flask(__name__)\n# Load the trained KNeighborsClassifier model\nmodel = pickle.load(open(\"model.pickle\", \"rb\"))\n@app.route(\"/\")\ndef home():\n    return render_template(\"index.html\")\n@app.route(\"/predict\", methods=[\"POST\"])\ndef predict():\n    int_features = [float(x) for x in request.form.values()]\n    final_features = [np.array(int_features)]",
+        "detail": "App.app",
+        "documentation": {}
+    },
+    {
+        "label": "model",
+        "kind": 5,
+        "importPath": "App.app",
+        "description": "App.app",
+        "peekOfCode": "model = pickle.load(open(\"model.pickle\", \"rb\"))\n@app.route(\"/\")\ndef home():\n    return render_template(\"index.html\")\n@app.route(\"/predict\", methods=[\"POST\"])\ndef predict():\n    int_features = [float(x) for x in request.form.values()]\n    final_features = [np.array(int_features)]\n    prediction = model.predict(final_features)\n    if prediction[0] == 0:",
+        "detail": "App.app",
+        "documentation": {}
+    },
+    {
+        "label": "iris",
+        "kind": 5,
+        "importPath": "App.model",
+        "description": "App.model",
+        "peekOfCode": "iris = load_iris()\n# Initialize feature data (X) and target variables (Y)\nX = iris.data\nY = iris.target\n# Initialize a RandomForestClassifier object\nrf_classifier = RandomForestClassifier(n_estimators=100)\n# Fit the RandomForestClassifier model to the dataset\nrf_classifier.fit(X, Y)\n# Save the trained RandomForestClassifier model to a file using pickle\npickle.dump(rf_classifier, open(\"model.pickle\", \"wb\"))",
+        "detail": "App.model",
+        "documentation": {}
+    },
+    {
+        "label": "X",
+        "kind": 5,
+        "importPath": "App.model",
+        "description": "App.model",
+        "peekOfCode": "X = iris.data\nY = iris.target\n# Initialize a RandomForestClassifier object\nrf_classifier = RandomForestClassifier(n_estimators=100)\n# Fit the RandomForestClassifier model to the dataset\nrf_classifier.fit(X, Y)\n# Save the trained RandomForestClassifier model to a file using pickle\npickle.dump(rf_classifier, open(\"model.pickle\", \"wb\"))\n# Load the saved RandomForestClassifier model from the file\nmodel = pickle.load(open(\"model.pickle\", \"rb\"))",
+        "detail": "App.model",
+        "documentation": {}
+    },
+    {
+        "label": "Y",
+        "kind": 5,
+        "importPath": "App.model",
+        "description": "App.model",
+        "peekOfCode": "Y = iris.target\n# Initialize a RandomForestClassifier object\nrf_classifier = RandomForestClassifier(n_estimators=100)\n# Fit the RandomForestClassifier model to the dataset\nrf_classifier.fit(X, Y)\n# Save the trained RandomForestClassifier model to a file using pickle\npickle.dump(rf_classifier, open(\"model.pickle\", \"wb\"))\n# Load the saved RandomForestClassifier model from the file\nmodel = pickle.load(open(\"model.pickle\", \"rb\"))\n# Use the loaded model to make predictions",
+        "detail": "App.model",
+        "documentation": {}
+    },
+    {
+        "label": "rf_classifier",
+        "kind": 5,
+        "importPath": "App.model",
+        "description": "App.model",
+        "peekOfCode": "rf_classifier = RandomForestClassifier(n_estimators=100)\n# Fit the RandomForestClassifier model to the dataset\nrf_classifier.fit(X, Y)\n# Save the trained RandomForestClassifier model to a file using pickle\npickle.dump(rf_classifier, open(\"model.pickle\", \"wb\"))\n# Load the saved RandomForestClassifier model from the file\nmodel = pickle.load(open(\"model.pickle\", \"rb\"))\n# Use the loaded model to make predictions\nsample = [[9, 2, 4, 9]]  # Adjust the values to match the four features\nprediction = model.predict(sample)",
+        "detail": "App.model",
+        "documentation": {}
+    },
+    {
+        "label": "model",
+        "kind": 5,
+        "importPath": "App.model",
+        "description": "App.model",
+        "peekOfCode": "model = pickle.load(open(\"model.pickle\", \"rb\"))\n# Use the loaded model to make predictions\nsample = [[9, 2, 4, 9]]  # Adjust the values to match the four features\nprediction = model.predict(sample)\nprint(prediction)",
+        "detail": "App.model",
+        "documentation": {}
+    },
+    {
+        "label": "sample",
+        "kind": 5,
+        "importPath": "App.model",
+        "description": "App.model",
+        "peekOfCode": "sample = [[9, 2, 4, 9]]  # Adjust the values to match the four features\nprediction = model.predict(sample)\nprint(prediction)",
+        "detail": "App.model",
+        "documentation": {}
+    },
+    {
+        "label": "prediction",
+        "kind": 5,
+        "importPath": "App.model",
+        "description": "App.model",
+        "peekOfCode": "prediction = model.predict(sample)\nprint(prediction)",
+        "detail": "App.model",
+        "documentation": {}
+    }
+]
